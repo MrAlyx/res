@@ -26,6 +26,30 @@ class BestellingController extends AbstractController
     }
 
     /**
+     * @Route("/keuken", name="keuken_index", methods={"GET"})
+     */
+    public function show_keuken(BestellingRepository $bestellingRepository): Response
+    {
+        return $this->render('bestelling/kok.html.twig', [
+            'bestellings' => $bestellingRepository->findBy(
+                ['gerecht_id' => 2]
+            )
+        ]);
+    }
+
+    /**
+     * @Route("/bar", name="bar_index", methods={"GET"})
+     */
+    public function show_bar(BestellingRepository $bestellingRepository): Response
+    {
+        return $this->render('bestelling/barman.html.twig', [
+            'bestellings' => $bestellingRepository->findBy(
+                ['gerecht_id' => "1"]
+            )
+        ]);
+    }
+
+    /**
      * @Route("/new", name="bestelling_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response

@@ -10,7 +10,11 @@
             <tr>
                 <th>Id</th>
                 <th>Aantal</th>
-                <th>Staat_klaar</th>
+                <th>Klant Naam</th>
+                <th>Product</th>
+                <th>Tafel</th>
+                <th>Gerecht</th>
+                <th>Staat klaar</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,10 +23,14 @@
             <tr>
                 <td>{{ bestelling.id }}</td>
                 <td>{{ bestelling.aantal }}</td>
-                <td>{{ bestelling.staatKlaar ? 'Yes' : 'No' }}</td>
+                <td>{{ bestelling.reserveringId }}</td>
+                <td>{{ bestelling.menuItemId }}</td>
+                <td>{{ bestelling.reserveringId.tafelId }}</td>
+                <td>{{ bestelling.menuitemId.subgerechtId.gerechtId }}</td>
+                <td>{{ bestelling.staatKlaar ? 'Ja' : 'Nee' }}</td>
                 <td>
                     <a href="{{ path('bestelling_show', {'id': bestelling.id}) }}">show</a>
-                    <a href="{{ path('bestelling_edit', {'id': bestelling.id}) }}">edit</a>
+                    <a href="{{ path('bestelling_edit', {'id': bestelling.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}

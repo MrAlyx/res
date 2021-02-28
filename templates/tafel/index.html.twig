@@ -22,7 +22,7 @@
                 <td>{{ tafel.maxPersonen }}</td>
                 <td>
                     <a href="{{ path('tafel_show', {'id': tafel.id}) }}">show</a>
-                    <a href="{{ path('tafel_edit', {'id': tafel.id}) }}">edit</a>
+                    <a href="{{ path('tafel_edit', {'id': tafel.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}

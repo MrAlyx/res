@@ -30,7 +30,9 @@ class ReserveringController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
         $reservering = new Reservering();
+        $reservering->setDatum(new \DateTime('now'));
         $form = $this->createForm(ReserveringType::class, $reservering);
         $form->handleRequest($request);
 
@@ -63,6 +65,7 @@ class ReserveringController extends AbstractController
      */
     public function edit(Request $request, Reservering $reservering): Response
     {
+        $reservering->setDatum(new \DateTime('now'));
         $form = $this->createForm(ReserveringType::class, $reservering);
         $form->handleRequest($request);
 

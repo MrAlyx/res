@@ -22,7 +22,7 @@
                 <td>{{ menuitem.prijs }}</td>
                 <td>
                     <a href="{{ path('menuitem_show', {'id': menuitem.id}) }}">show</a>
-                    <a href="{{ path('menuitem_edit', {'id': menuitem.id}) }}">edit</a>
+                    <a href="{{ path('menuitem_edit', {'id': menuitem.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}

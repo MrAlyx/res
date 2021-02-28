@@ -3,18 +3,29 @@
 {% block title %}Bon{% endblock %}
 
 {% block body %}
-    <h1>Bon</h1>
+    <br>
+    <h5>Bon {{ bon.id }}</h5>
+    <p>Datum : {{ bon.datum ? bon.datum|date('Y-m-d') : '' }}</p><br>
+    <p>Tafelnummer {{ bon.reserveringId.tafelId }}</p>
 
-    <table class="table">
+    <table class="table table-striped pull-right">
+        <thead>
+        <tr>
+            <td>Aantal</td>
+            <td>Product</td>
+            <td>Prijs</td>
+            <td>Totaal</td>
+        </tr>
+        </thead>
         <tbody>
+        {% for bestelling in bon.reserveringId.bestellings %}
             <tr>
-                <th>Id</th>
-                <td>{{ bon.id }}</td>
+                <td>{{ bestelling.aantal }}</td>
+                <td>{{ bestelling.menuItemId}}</td>
+                <td>{{ bestelling.menuItemId.prijs }}</td>
+                <td>{{ bestelling.reserveringId }}</td>
             </tr>
-            <tr>
-                <th>Datum</th>
-                <td>{{ bon.datum ? bon.datum|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
+        {% endfor %}
         </tbody>
     </table>
 

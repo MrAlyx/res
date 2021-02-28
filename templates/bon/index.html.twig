@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Klantnaam</th>
                 <th>Datum</th>
                 <th>actions</th>
             </tr>
@@ -17,10 +18,11 @@
         {% for bon in bons %}
             <tr>
                 <td>{{ bon.id }}</td>
+                <td>{{ bon.reserveringId }}</td>
                 <td>{{ bon.datum ? bon.datum|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('bon_show', {'id': bon.id}) }}">show</a>
-                    <a href="{{ path('bon_edit', {'id': bon.id}) }}">edit</a>
+                    <a href="{{ path('bon_edit', {'id': bon.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}

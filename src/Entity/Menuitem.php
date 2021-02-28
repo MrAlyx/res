@@ -114,4 +114,9 @@ class Menuitem
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->getNaam();
+    }
 }

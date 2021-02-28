@@ -20,7 +20,7 @@
                 <td>{{ subgerecht.naam }}</td>
                 <td>
                     <a href="{{ path('subgerecht_show', {'id': subgerecht.id}) }}">show</a>
-                    <a href="{{ path('subgerecht_edit', {'id': subgerecht.id}) }}">edit</a>
+                    <a href="{{ path('subgerecht_edit', {'id': subgerecht.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}

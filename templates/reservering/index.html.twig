@@ -9,20 +9,24 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Aantal_personen</th>
+                <th>KlantNaam</th>
+                <th>Tafelnummer</th>
+                <th>Aantal personen</th>
                 <th>Datum</th>
-                <th>actions</th>
+                <th>Acties</th>
             </tr>
         </thead>
         <tbody>
         {% for reservering in reserverings %}
             <tr>
                 <td>{{ reservering.id }}</td>
+                <td>{{ reservering.klantId }}</td>
+                <td>{{ reservering.tafelId }}</td>
                 <td>{{ reservering.aantalPersonen }}</td>
                 <td>{{ reservering.datum ? reservering.datum|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('reservering_show', {'id': reservering.id}) }}">show</a>
-                    <a href="{{ path('reservering_edit', {'id': reservering.id}) }}">edit</a>
+                    <a href="{{ path('reservering_edit', {'id': reservering.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}

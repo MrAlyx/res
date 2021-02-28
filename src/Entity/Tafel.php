@@ -97,4 +97,9 @@ class Tafel
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return "Tafelnummer ".$this->getId(). ", max. ".$this->getMaxPersonen()." personen";
+    }
 }

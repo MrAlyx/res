@@ -53,7 +53,6 @@
             /* Main content */
             .main {
                 margin-left: 200px; /* Same as the width of the sidenav */
-                font-size: 20px; /* Increased text to enable scrolling */
                 padding: 0px 10px;
             }
 
@@ -81,6 +80,17 @@
                 .sidenav {padding-top: 15px;}
                 .sidenav a {font-size: 18px;}
             }
+
+            .wrapper {
+                margin-right: auto; /* 1 */
+                margin-left:  auto; /* 1 */
+
+                max-width: 960px; /* 2 */
+
+                padding-top: 10px;
+                padding-right: 10px; /* 3 */
+                padding-left:  10px; /* 3 */
+            }
         </style>
     </head>
     <body>
@@ -90,8 +100,8 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Bestellingen invoeren</a>
-            <a href="#">Bon voor klant</a>
+            <a href="{{ path('bestelling_new') }}">Bestellingen invoeren</a>
+            <a href="{{ path('bon_index') }}">Bon voor klant</a>
         </div>
         <button class="dropdown-btn">Reserveringen
             <i class="fa fa-caret-down"></i>
@@ -101,17 +111,17 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="#">Reservering toevoegen</a>
-                <a href="#">Reservering wijzigen</a>
-                <a href="#">Reservering verwijderen</a>
+                <a href="{{ path('reservering_new') }}">Reservering toevoegen</a>
+                <a href="{{ path('reservering_index') }}">Reservering wijzigen</a>
+                <a href="{{ path('reservering_index') }}">Reservering verwijderen</a>
             </div>
         </div>
         <button class="dropdown-btn">Overzichten
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-            <a href="#">Overzicht Kok</a>
-            <a href="#">Overzicht barman</a>
+            <a href="{{ path('keuken_index') }}">Overzicht Kok</a>
+            <a href="{{ path('bar_index') }}">Overzicht barman</a>
         </div>
         <button class="dropdown-btn">Gegevens
             <i class="fa fa-caret-down"></i>
@@ -121,23 +131,25 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="#">Drank toevoegen</a>
-                <a href="#">Drank wijzigen</a>
-                <a href="#">Drank verwijderen</a>
+                <a href="{{ path('menuitem_new') }}">Drank toevoegen</a>
+                <a href="{{ path('menuitem_index') }}">Drank wijzigen</a>
+                <a href="{{ path('menuitem_index') }}">Drank verwijderen</a>
             </div>
             <button class="dropdown-btn">Gerechten
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="#">Gerecht toevoegen</a>
-                <a href="#">Gerecht wijzigen</a>
-                <a href="#">Gerecht verwijderen</a>
+                <a href="{{ path('menuitem_new') }}">Gerecht toevoegen</a>
+                <a href="{{ path('menuitem_index') }}">Gerecht wijzigen</a>
+                <a href="{{ path('menuitem_index') }}">Gerecht verwijderen</a>
             </div>
         </div>
     </div>
 
     <div class="main">
-        {% block body %}{% endblock %}
+        <div class="wrapper">
+            {% block body %}{% endblock %}
+        </div>
     </div>
 
     <script>
