@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bestelling index{% endblock %}
+
+{% block body %}
+    <h1>Bestelling index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Aantal</th>
+                <th>Staat_klaar</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bestelling in bestellings %}
+            <tr>
+                <td>{{ bestelling.id }}</td>
+                <td>{{ bestelling.aantal }}</td>
+                <td>{{ bestelling.staatKlaar ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('bestelling_show', {'id': bestelling.id}) }}">show</a>
+                    <a href="{{ path('bestelling_edit', {'id': bestelling.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('bestelling_new') }}">Create new</a>
+{% endblock %}
