@@ -1,10 +1,6 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Bon{% endblock %}
-
 {% block body %}
     <br>
-    <h5>Bon {{ bon.id }}</h5>
+    <h4>Bon {{ bon.id }}</h4>
     <p>Datum : {{ bon.datum ? bon.datum|date('Y-m-d') : '' }}</p><br>
     <p>Tafelnummer {{ bon.reserveringId.tafelId }}</p>
 
@@ -38,10 +34,4 @@
         </td>
         </tbody>
     </table>
-
-    <a href="{{ path('bon_index') }}">back to list</a>
-
-    <a href="{{ path('bon_edit', {'id': bon.id}) }}">edit</a>
-
-    {{ include('bon/_delete_form.html.twig') }}
 {% endblock %}

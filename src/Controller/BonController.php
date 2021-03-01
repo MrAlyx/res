@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use App\Entity\Bon;
 use App\Form\BonType;
 use App\Repository\BonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,6 +26,43 @@ class BonController extends AbstractController
         return $this->render('bon/index.html.twig', [
             'bons' => $bonRepository->findAll(),
         ]);
+    }
+
+
+    /**
+     * @Route("/pdf/{id}", name="bon_pdf", methods={"GET"})
+     */
+    public function pdfshow(Bon $bon)
+    {
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+//        $klant = $this->getDoctrine()->getRepository(Klant::class)->find($bon->getKlantId());
+//        $bestellingen = $this->getDoctrine()->getRepository(Bestellingen::class)->find($bon->getBestellingId());
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('bon/pdf.html.twig', [
+            'bon' => $bon
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (inline view)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => false
+        ]);
+        exit;
     }
 
     /**

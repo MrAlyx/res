@@ -22,6 +22,7 @@
                 <td>{{ bon.datum ? bon.datum|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('bon_show', {'id': bon.id}) }}">show</a>
+                    <a href="{{ path('bon_pdf', {'id': bon.id}) }}">pdf</a>
                     <a href="{{ path('bon_edit', {'id': bon.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                 </td>
             </tr>
