@@ -16,7 +16,7 @@ class BestellingType extends AbstractType
             ->add('staat_klaar')
             ->add('menuitem_id')
             ->add('reservering_id')
-            ->add('bon_id')
+//            ->add('bon_id')
             ->add('gerecht_id')
         ;
     }

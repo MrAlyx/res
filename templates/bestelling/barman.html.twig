@@ -30,9 +30,8 @@
                 <td>{{ bestelling.menuItemId.subgerechtId.gerechtId }}</td>
                 <td>{{ bestelling.staatKlaar ? 'Ja' : 'Nee' }}</td>
                 <td>
-                    {#                    <a href="{{ path('bestelling_show', {'id': bestelling.id}) }}">show</a>#}
-                    {#                    <a href="{{ path('bestelling_edit', {'id': bestelling.id}) }}">edit</a>#}
-                    {{ include('bestelling/_delete_form.html.twig') }}
+                <a href="{{ path('bestelling_edit', {'id': bestelling.id}) }}">edit</a>
+                {{ include('bestelling/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
