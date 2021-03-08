@@ -1,0 +1,2 @@
+pdf (inname $inname) 
+Date {{ game.gameDate ? game.gameDate|date('Y-m-d H:i:s') : '' }}
